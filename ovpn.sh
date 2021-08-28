@@ -235,7 +235,7 @@ deleteuser(){
 			 if [[ -f "/home/admin/keys" ]]; then
 		             rm "/home/admin/keys/$client.ovpn"
 		            else
-		             rm "/home/admin/keys/$client.ovpn"
+		             rm "/home/ubuntu/keys/$client.ovpn"
 		          fi
 			  echo
 			  rm "/root/$client.ovpn"
