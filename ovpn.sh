@@ -101,10 +101,11 @@ adduser(){
 	echo "----------------"
 	echo "-------------------------"
 	echo "--------------------------------"
-        echo
-  linktofile=$(mv /root/$client.ovpn home/admin/keys)
-        echo
-  linktofile=$(mv /root/$client.ovpn home/ubuntu/keys)
+	if [[ -f "/home/admin/keys ]]; then
+		 linktofile=$(mv /root/$client.ovpn home/admin/keys)
+		else
+		  linktofile=$(mv /root/$client.ovpn home/ubuntu/keys)
+        fi
   
 }
 uploadbase(){
