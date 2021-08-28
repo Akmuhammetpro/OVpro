@@ -233,11 +233,11 @@ deleteuser(){
 				chown nobody:"$group_name" /etc/openvpn/server/crl.pem
 				echo
 				rm "/root/$client.ovpn"
-				if [[ -f "/home/admin/keys/$client.ovpn"]]; then
-                                rm "/home/admin/keys/$client.ovpn"
-				else
-				rm "/home/ubutnu/keys/$client.ovpn"
-				fi
+		           if [[ -f "/home/admin/keys/$client.ovpn" ]]; then
+		             rm "/home/admin/keys/$client.ovpn"
+		            else
+		             rm "/home/admin/keys/$client.ovpn"
+		         fi
 				clear
 				echo "$client удален!"
 				read -e -p "Хотите продолжить удаление пользователей?[Y/n]:" delyn
