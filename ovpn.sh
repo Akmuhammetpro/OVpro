@@ -335,7 +335,7 @@ uninstallovpn(){
 				echo
 				rm -R "/var/log/openvpn"
 				cd "/root" && rm *.ovpn
-				if [[-f "/home/admin/keys"]]; then
+				if [[ -f "/home/admin/keys"]]; then
                                 cd "/home/admin/keys" && rm *.ovpn
 				else
 				cd "/home/ubuntu/keys" && rm *.ovpn
