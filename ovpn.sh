@@ -5,6 +5,8 @@ Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_p
 sh_ver="7.7.7"
 
 mkdir /home/admin/keys
+else
+mkdir /home/ubuntu/keys
 
 # Detect Debian users running the script with "sh" instead of bash
 if readlink /proc/$$/exe | grep -q "dash"; then
@@ -104,6 +106,9 @@ adduser(){
 	echo "--------------------------------"
         echo
   linktofile=$(mv /root/$client.ovpn /home/admin/keys)
+  else
+        echo
+  linktofile=$(mv /root/$client.ovpn /home/ubuntu/keys)
 }
 uploadbase(){
 	echo -e "Выгрузка Базы OpenVPN в облако..." && echo
