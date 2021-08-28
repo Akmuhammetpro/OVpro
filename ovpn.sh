@@ -232,12 +232,13 @@ deleteuser(){
 				# CRL is read with each client connection, when OpenVPN is dropped to nobody
 				chown nobody:"$group_name" /etc/openvpn/server/crl.pem
 				echo
-				rm "/root/$client.ovpn"
-		           if [[ -f "/home/admin/keys/$client.ovpn" ]]; then
+			 if [[ -f "/home/admin/keys" ]]; then
 		             rm "/home/admin/keys/$client.ovpn"
 		            else
 		             rm "/home/admin/keys/$client.ovpn"
-		         fi
+		          fi
+			  echo
+			  rm "/root/$client.ovpn"
 				clear
 				echo "$client удален!"
 				read -e -p "Хотите продолжить удаление пользователей?[Y/n]:" delyn
