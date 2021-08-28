@@ -268,7 +268,7 @@ showlink(){
 		client=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep "^V" | cut -d '=' -f 2 | sed -n "$client_number"p)
 		#Проверяет наличие папки и файла в этой папке
 		echo
-		if [ -f "/home/admin/keys/$client.ovpn" ]; then
+		if [[ -f "/home/admin/keys/$client.ovpn" ]]; then
 		 linktofile="$(curl -F "file=@/home/admin/keys/$client.ovpn" "https://file.io" | jq ".link")"
 		else
 		 linktofile="$(curl -F "file=@/home/admin/keys/$client.ovpn" "https://file.io" | jq ".link")"
