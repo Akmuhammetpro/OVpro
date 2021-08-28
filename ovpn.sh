@@ -811,7 +811,6 @@ ${Blue}|————————————————————————
 |${Blue}——————————${Font_color_suffix} Автоматизация ${Blue}———————————${Font_color_suffix}|
 |${Blue}9.${Font_color_suffix} ${Yellow}Просмотр дней${Font_color_suffix}                    |
 |${Blue}10.${Font_color_suffix} ${Yellow}Настроить автоудаление${Font_color_suffix}          |
-|${Blue}11.${Font_color_suffix} ${Yellow}Перейти на Shadowsocks${Font_color_suffix}          |
 ${Blue}|————————————————————————————————————|${Font_color_suffix}"
 	read -p "Действие: " option
 	until [[ "$option" =~ ^[0-9]+$ ]]; do
@@ -848,8 +847,5 @@ ${Blue}|————————————————————————
 		;;
 		10)
 		confautodel
-                ;;
-                11)
-                Create_Aliases
 	esac
 fi
