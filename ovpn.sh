@@ -1,5 +1,4 @@
 #!/bin/bash
-# OVpro by Chieftain && xyl1gun4eg && VeroN
 
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m" && Green="\033[32m" && Red="\033[31m" && Yellow="\033[33m" && Blue='\033[34m' && Purple='\033[35m' && Ocean='\033[36m' && Black='\033[37m' && Morg="\033[5m" && Reverse="\033[7m" && Font="\033[1m"
 sh_ver="7.7.7"
@@ -103,7 +102,9 @@ adduser(){
 	echo "-------------------------"
 	echo "--------------------------------"
         echo
-  linktofile=$(mv /root/$client.ovpn /keys)
+  linktofile=$(mv /root/$client.ovpn home/admin/keys)
+        echo
+  linktofile=$(mv /root/$client.ovpn home/ubuntu/keys)
   
 }
 uploadbase(){
@@ -232,6 +233,7 @@ deleteuser(){
 				echo
 				rm "/root/$client.ovpn"
                                 rm "/home/admin/keys/$client.ovpn"
+				rm "/home/ubutnu/keys/$client.ovpn"
 				clear
 				echo "$client удален!"
 				read -e -p "Хотите продолжить удаление пользователей?[Y/n]:" delyn
@@ -264,8 +266,12 @@ showlink(){
 			read -p "Клиент: " client_number
 		done
 		client=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep "^V" | cut -d '=' -f 2 | sed -n "$client_number"p)
+		#Проверяет наличие папки и файла в этой папке
 		echo
-		linktofile="$(curl -F "file=@/home/admin/keys/$client.ovpn" "https://file.io" | jq ".link")"
+		if [ -f "/home/admin/keys/$client.ovpn" ]; then
+		 linktofile="$(curl -F "file=@/home/admin/keys/$client.ovpn" "https://file.io" | jq ".link")"
+		else
+		 linktofile="$(curl -F "file=@/home/admin/keys/$client.ovpn" "https://file.io" | jq ".link")"
 		clear
 		echo -e "${Red}$linktofile${Font_color_suffix} - ${Blue}Ссылка на ключ $client${Font_color_suffix}" && echo
 		read -e -p "Хотите продолжить вывод ссылок на ключи?[Y/n]:" delyn
@@ -324,6 +330,7 @@ uninstallovpn(){
 				rm -R "/var/log/openvpn"
 				cd "/root" && rm *.ovpn
                                 cd "/home/admin/keys" && rm *.ovpn
+				cd "/home/ubuntu/keys" && rm *.ovpn
 				echo "OpenVPN удален!"
 			else
 				echo
