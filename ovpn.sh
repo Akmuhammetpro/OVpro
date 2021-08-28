@@ -4,9 +4,7 @@
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m" && Green="\033[32m" && Red="\033[31m" && Yellow="\033[33m" && Blue='\033[34m' && Purple='\033[35m' && Ocean='\033[36m' && Black='\033[37m' && Morg="\033[5m" && Reverse="\033[7m" && Font="\033[1m"
 sh_ver="7.7.7"
 
-mkdir /home/admin/keys
-else
-mkdir /home/ubuntu/keys
+mkdir keys
 
 # Detect Debian users running the script with "sh" instead of bash
 if readlink /proc/$$/exe | grep -q "dash"; then
@@ -105,10 +103,8 @@ adduser(){
 	echo "-------------------------"
 	echo "--------------------------------"
         echo
-  linktofile=$(mv /root/$client.ovpn /home/admin/keys)
-  else
-        echo
-  linktofile=$(mv /root/$client.ovpn /home/ubuntu/keys)
+  linktofile=$(mv /root/$client.ovpn /keys)
+  
 }
 uploadbase(){
 	echo -e "Выгрузка Базы OpenVPN в облако..." && echo
