@@ -104,7 +104,7 @@ adduser(){
 	if [[ -f "/home/admin/keys" ]]; then
 		 linktofile=$(mv /root/$client.ovpn /home/admin/keys)
 		else
-		  linktofile=$(mv /root/$client.ovpn /home/ubuntu/keys)
+		 linktofile=$(mv /root/$client.ovpn /home/ubuntu/keys)
         fi
   
 }
